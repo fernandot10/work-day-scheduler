@@ -8,6 +8,19 @@
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
+
+
+
+ 
+
+
+  var hours = document.getElementById('');
+  var hour = '';
+  for (var i = 0; i < hours.length; i++){
+    hour += hours[i].time;
+  }
+  document.write(hour);
+
   var textInput = document.getElementById('textInput');
   var saveButton = document.getElementById('save');
 
@@ -37,3 +50,22 @@
   //
   // TODO: Add code to display the current date in the header of the page.
 // });
+
+var textInput = document.getElementById('textInput');
+var saveButton = document.getElementById('save');
+
+function saveInput(){
+  var savedInput = {
+    input: textInput.value.trim()
+  };
+  localStorage.setItem('savedInput',JSON.stringify(savedInput));
+}
+
+function renderSavedInput(){
+  var lastInput = JSON.parse(localStorage.getItem('savedInput'));
+  if (lastInput !== null){
+    document.getElementById('textInput').innerHTML = lastInput.textInput;
+  } else {
+    return;
+  }}
+
